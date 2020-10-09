@@ -226,6 +226,7 @@ Markdown.propTypes = {
   allowedImageHandlers: PropTypes.arrayOf(PropTypes.string),
   defaultImageHandler: PropTypes.string,
   debugPrintTree: PropTypes.bool,
+  selectableText: PropTypes.bool,
 };
 
 export default Markdown;

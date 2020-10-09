@@ -63,17 +63,17 @@ const renderRules = {
 
   // Emphasis
   strong: (node, children, parent, styles) => (
-    <Text key={node.key} style={styles.strong}>
+    <Text key={node.key} style={styles.strong} selectable>
       {children}
     </Text>
   ),
   em: (node, children, parent, styles) => (
-    <Text key={node.key} style={styles.em}>
+    <Text key={node.key} style={styles.em} selectable>
       {children}
     </Text>
   ),
   s: (node, children, parent, styles) => (
-    <Text key={node.key} style={styles.s}>
+    <Text key={node.key} style={styles.s} selectable>
       {children}
     </Text>
   ),
@@ -125,6 +125,7 @@ const renderRules = {
         <View key={node.key} style={styles._VIEW_SAFE_list_item}>
           <Text
             style={[modifiedInheritedStylesObj, styles.bullet_list_icon]}
+            selectable
             accessible={false}>
             {Platform.select({
               android: '\u2022',
@@ -153,7 +154,7 @@ const renderRules = {
 
       return (
         <View key={node.key} style={styles._VIEW_SAFE_list_item}>
-          <Text style={[modifiedInheritedStylesObj, styles.ordered_list_icon]}>
+          <Text style={[modifiedInheritedStylesObj, styles.ordered_list_icon]} selectable>
             {listItemNumber}
             {node.markup}
           </Text>
@@ -172,7 +173,7 @@ const renderRules = {
 
   // Code
   code_inline: (node, children, parent, styles, inheritedStyles = {}) => (
-    <Text key={node.key} style={[inheritedStyles, styles.code_inline]}>
+    <Text key={node.key} style={[inheritedStyles, styles.code_inline]} selectable>
       {node.content}
     </Text>
   ),
@@ -188,7 +189,7 @@ const renderRules = {
     }
 
     return (
-      <Text key={node.key} style={[inheritedStyles, styles.code_block]}>
+      <Text key={node.key} style={[inheritedStyles, styles.code_block]} selectable>
         {content}
       </Text>
     );
@@ -205,7 +206,7 @@ const renderRules = {
     }
 
     return (
-      <Text key={node.key} style={[inheritedStyles, styles.fence]}>
+      <Text key={node.key} style={[inheritedStyles, styles.fence]} selectable>
         {content}
       </Text>
     );
@@ -248,7 +249,8 @@ const renderRules = {
     <Text
       key={node.key}
       style={styles.link}
-      onPress={() => openUrl(node.attributes.href, onLinkPress)}>
+      onPress={() => openUrl(node.attributes.href, onLinkPress)}
+      selectable>
       {children}
     </Text>
   ),
@@ -301,12 +303,12 @@ const renderRules = {
 
   // Text Output
   text: (node, children, parent, styles, inheritedStyles = {}) => (
-    <Text key={node.key} style={[inheritedStyles, styles.text]}>
+    <Text key={node.key} style={[inheritedStyles, styles.text]} selectable>
       {node.content}
     </Text>
   ),
   textgroup: (node, children, parent, styles) => (
-    <Text key={node.key} style={styles.textgroup}>
+    <Text key={node.key} style={styles.textgroup} selectable>
       {children}
     </Text>
   ),
@@ -316,12 +318,12 @@ const renderRules = {
     </View>
   ),
   hardbreak: (node, children, parent, styles) => (
-    <Text key={node.key} style={styles.hardbreak}>
+    <Text key={node.key} style={styles.hardbreak} selectable>
       {'\n'}
     </Text>
   ),
   softbreak: (node, children, parent, styles) => (
-    <Text key={node.key} style={styles.softbreak}>
+    <Text key={node.key} style={styles.softbreak} selectable>
       {'\n'}
     </Text>
   ),
@@ -333,12 +335,12 @@ const renderRules = {
     </View>
   ),
   inline: (node, children, parent, styles) => (
-    <Text key={node.key} style={styles.inline}>
+    <Text key={node.key} style={styles.inline} selectable>
       {children}
     </Text>
   ),
   span: (node, children, parent, styles) => (
-    <Text key={node.key} style={styles.span}>
+    <Text key={node.key} style={styles.span} selectable>
       {children}
     </Text>
   ),
